@@ -285,7 +285,7 @@ int main() {
 					puts("Purchase List:");
 					displayPurchased(purchased, totalPurchased);
 					printf("Total Price: %lld\n", total);
-					printf("Total Discount: %lld percent\n", persen);
+					printf("Total Discount: %d percent\n", persen);
 					printf("Discount Amount: %lld\n", diskon);
 					printf("Amount Due: %lld\n\n", result);
 					
@@ -359,12 +359,12 @@ void customerFile(struct data purchased[], char temp1[], char name[], ll totalPu
 	fprintf(customer, "Code         Products          Quantity      Price\n");
 	fprintf(customer, "====================================================\n");
 	for(int i = 0; i < totalPurchased; i++) {
-		fprintf(customer, "%-12s %-20s %-10lld %lld\n", purchased[i].code, purchased[i].barang, purchased[i].quantity, purchased[i].price);
-		fprintf(customer, "");
+		if(i == totalPurchased - 1) fprintf(customer, "%-12s %-20s %-10lld %lld", purchased[i].code, purchased[i].barang, purchased[i].quantity, purchased[i].price);
+		else fprintf(customer, "%-12s %-20s %-10lld %lld\n", purchased[i].code, purchased[i].barang, purchased[i].quantity, purchased[i].price);
 	}
 	fprintf(customer, "====================================================\n\n");
 	fprintf(customer, "Total Price: %lld\n", total);
-	fprintf(customer, "Total Discount: %lld percent\n", persen);
+	fprintf(customer, "Total Discount: %d percent\n", persen);
 	fprintf(customer, "Discount Amount: %lld\n", diskon);
 	fprintf(customer, "Amount Due: %lld", result);
 	fclose(customer);
