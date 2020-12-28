@@ -1,2 +1,1 @@
-push(4);
-  // remove();
+if(searchNode(15)) puts("Duplicate key detected.");
